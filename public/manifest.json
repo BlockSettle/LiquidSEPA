@@ -1,0 +1,36 @@
+{
+  "name": "BlockSettle",
+  "short_name": "BlockSettle",
+  "theme_color": "#005174",
+  "background_color": "#004669",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "./static/media/app-icon-96-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./static/media/app-icon-100-100.png",
+      "sizes": "100x100",
+      "type": "image/png"
+    },
+    {
+      "src": "./static/media/app-icon-144-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./static/media/app-icon-256-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./static/media/app-icon-512-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
