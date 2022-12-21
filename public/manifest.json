@@ -6,6 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "start_url": ".",
+  "service_worker": "./serviceWorker.js",
   "icons": [
     {
       "src": "./static/media/app-icon-96-96.png",
