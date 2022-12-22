@@ -1,7 +1,7 @@
 const serviceWorker = {};
 
-const staticCacheName = 's-cache_data_1';
-const dynamicCacheName = 'd-cache_data_1';
+const staticCacheName = 's-cache_data_2';
+const dynamicCacheName = 'd-cache_data_2';
 
 const assetsUrls = [
   'index.html',
@@ -69,17 +69,23 @@ async function cacheFirst(req) {
 }
 
 async function networkFirst(req) {
-  const cache = await caches.open(dynamicCacheName);
+  let cache;
+  caches
+    .open(dynamicCacheName)
+    .then((c) => (cache = c))
+    .catch((error) => console.log(`Error: ${error}`));
+
   try {
-    const response = await fetch(req);
+    const response = await fetch(req.url);
     await cache.put(req, response.clone());
-    console.log('online')
 
     return response;
   } catch (error) {
-    const cached = await cache.match(req);
-    console.log('offline')
-    console.log('cached: ', cached)
+    try {
+      const cached = await cache.match(req.url);
+    } catch (err) {
+      console.error(err);
+    }
     // or create offline html file?
     return cached ?? caches.match('/index.html');
   }
